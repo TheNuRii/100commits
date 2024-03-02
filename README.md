@@ -2,15 +2,16 @@
 
 <h3>Opis:</h3>
 <p>🔵 Celem tego projektu jest popchnięcie swoje wiedzy i umiętnośći do przodu.</p>
-<p>🔵 Głównym celem jest pozbycie tak zwanego "Tutorial hell"</p>
+<p>🔵 Głównym celem jest pozbycie tak zwanego "Tutorial hell".</p>
 <p>🔵 Dużo z tych rzeczy jest dla mnie dość nowych więc wraz z tworzeniem tej aplikacji będę uzupełniał swoje braki w wiedzy.</p>
 <br>
 <h3>✅ Faza 0- wstępny zarys i usatlenie podstawowych celów:</h3>
 <ol>
-  <li>Wstępny zarys co chce zrealizować/li>
+  <li>Wstępny zarys co chce zrealizować</li>
   <li>Wybór technologi, z których chce kożystać</li>
   <li>Rozłożenie pracy na projektem</li>
   <li>Ustalnenie bazowej funkjonalności i skupienie się na niej</li>
+  <li><strong>❗️ Dodanie gitignore</strong></li>
 </ol>
 <br>
 <h3>❌ Faza 1 - podstawowa funkcjonalność aplikacji webowej:</h3>
