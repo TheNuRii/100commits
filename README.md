@@ -46,3 +46,12 @@
   <li>uwierzytelnienie przy logowaniu (telefon/mail)</li>
   <li>polepszenie infraktustury aplikacji pod względem jej bezpieczeństwa</li>
 </ol>
+<br>
+<h3>📚 Materiały z których korzystam:</h3>
+<ul>
+  <li>📗 <a url="https://www.youtube.com/@dotnet/playlists">.Net Youtube channel</a></li>
+  <li>📗 <a url="https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-6.0">ASP .Net Documetation</a></li>
+  <li>📗 <a url="https://roadmap.sh/aspnet-core">ASP .Net roadmap</a></li>
+  <li>📗 <a url="https://helion.pl/ksiazki/inzynieria-oprogramowania-wedlug-google-czego-warto-sie-nauczyc-o-tworzeniu-oprogramowania-titus-winters-tom-manshreck-hyrum-wright,iogoog.htm#format/d">Inżynieria oprogramowania według Google.</a></li>
+  <li>📗 <a url="https://www.youtube.com/@DevMentorsPL/featured">Oczywiście ten kanał na Youtubie: Devmentors</a></li>
+</ul>
