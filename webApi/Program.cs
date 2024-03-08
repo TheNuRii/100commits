@@ -63,3 +63,42 @@ app.MapDelete("/todos/{id}", (int id) =>
 app.Run();
 
 public record Todo(int Id, string Name, DateTime DueDate, bool IsComplited);
+
+interface ITaskService
+{
+    Todo? GetTodoById(int id);
+
+    List<Todo> GetTodos();
+
+    void DeleteTodoById(int id);
+
+    Todo AddTodo(Todo task);
+}
+
+class InMemoryTaskService : ITaskService
+{
+    private readonly List<Todo> _todos = [];
+
+    public Todo? GetTodoById(int id)
+    {
+        return _todos.SingleOrDefault(t => id == t.Id);
+    }
+
+    public List<Todo> GetTodos()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void DeleteTodoById(int id)
+    {
+        _todos.RemoveAll(task => id == task.Id);
+    }
+
+    public Todo AddTodo(Todo task)
+    {
+        _todos.Add(task);
+        return task;
+    }
+    
+    
+}
