@@ -1,5 +1,7 @@
 <h1>100 commitów</h1>
 
+<p><strong>❗️ Soon all this text will be refactor to English</strong></p>
+
 <h3>Opis:</h3>
 <p>🔵 Celem tego projektu jest popchnięcie swoje wiedzy i umiętnośći do przodu.</p>
 <p>🔵 Głównym celem jest pozbycie tak zwanego "Tutorial hell".</p>
@@ -7,7 +9,7 @@
 <br>
 <h2>Co jeszcze muszę przerobić przed przystąpieniem</h2>
 <ul>
-  <li>
+  <ul>
     <h4>🎓 Build simple Api (Todo api)</h4>
       <li>ASP .Net core model hostowania customowanie aplikacji</li>
       <li>CRUD model</li>
@@ -16,9 +18,9 @@
       <li>Endpoit filters</li>
       <li>Dependency injection</li>
       <p>Note: Lot of this stuf is new to me so I leare a basic princiable of each topic</p>
-  </li>
+  </ul>
   
-</ol>
+</ul>
 
 <h2>Realizacja wybranego Projektu</h2>
 
