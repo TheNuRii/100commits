@@ -1,10 +1,27 @@
-<h1>Realizacja projektu 100 commitów</h1>
+<h1>100 commitów</h1>
 
 <h3>Opis:</h3>
 <p>🔵 Celem tego projektu jest popchnięcie swoje wiedzy i umiętnośći do przodu.</p>
 <p>🔵 Głównym celem jest pozbycie tak zwanego "Tutorial hell".</p>
 <p>🔵 Dużo z tych rzeczy jest dla mnie dość nowych więc wraz z tworzeniem tej aplikacji będę uzupełniał swoje braki w wiedzy.</p>
 <br>
+<h2>Co jeszcze muszę przerobić przed przystąpieniem</h2>
+<ul>
+  <li>
+    <h4>🎓 Build simple Api (Todo api)</h4>
+      <li>ASP .Net core model hostowania customowanie aplikacji</li>
+      <li>CRUD model</li>
+      <li>Endpoit routing</li>
+      <li>Middleweres</li>
+      <li>Endpoit filters</li>
+      <li>Dependency injection</li>
+      <p>Note: Lot of this stuf is new to me so I leare a basic princiable of each topic</p>
+  </li>
+  
+</ol>
+
+<h2>Realizacja wybranego Projektu</h2>
+
 <h3>✅ Faza 0- wstępny zarys i usatlenie podstawowych celów:</h3>
 <ol>
   <li>Wstępny zarys co chce zrealizować</li>
