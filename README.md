@@ -35,7 +35,8 @@
 <p>My ideas</p>
 </br>
 <ul>
-  <li></li>
+  <li>Register user or login interface (backend)</li>
+  <li>Chatroom</li>
 </ul>
 <h3>📚 Documetation and learing materials that I use:</h3>
 <ul>
