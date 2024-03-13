@@ -18,3 +18,16 @@ Product deluxMeat = new Product()
 contex.Products.Add(deluxMeat);
 
 contex.SaveChanges();
+
+var products =  from product in contex.Products
+                where product.Price > 10.00M
+                orderby product.Name
+                select product;
+
+foreach (Product p in products)
+{
+    Console.WriteLine($"Id: {p.Id}");
+    Console.WriteLine($"Name: {p.Name}");
+    Console.WriteLine($"Price: {p.Price}");
+    Console.WriteLine(new string('_', 20));
+}                
