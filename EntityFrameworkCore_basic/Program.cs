@@ -30,4 +30,15 @@ foreach (Product p in products)
     Console.WriteLine($"Name: {p.Name}");
     Console.WriteLine($"Price: {p.Price}");
     Console.WriteLine(new string('_', 20));
-}                
+}
+
+var veggieSpecialDelte = contex.Products
+    .Where(p => p.Name == "Veggie Special Pizza")
+    .FirstOrDefault();
+
+if (veggieSpecial is Product)
+{
+    contex.Remove(veggieSpecial);
+}
+
+               
