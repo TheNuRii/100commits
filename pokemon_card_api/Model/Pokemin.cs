@@ -1,4 +1,4 @@
-namespace PokemonRewiewApp.Model;
+namespace pokemon_card_api.Model;
 
 public class Pokemon
 {
