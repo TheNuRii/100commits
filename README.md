@@ -5,7 +5,7 @@
 <br>
 <ul>
   <p>Note: Lot of this stuf is new to me so I leare a basic princiable of each topic</p>
-  <h4>✅ What I learnh4>
+  <h4>✅ What I learn <h4>
   <li>ASP .Net core aplication host model</li>
   <li>CRUD model</li>
   <li>Endpoit routing</li>
@@ -22,7 +22,7 @@
   </br>
   <h4>🧐 What I going to learn</h4>
   <li> MVC - model viev controler</li>
-  </li>Middleware </li>
+  <li>Middleware </li>
   <li>Docker</li>  
 </ul>
 
