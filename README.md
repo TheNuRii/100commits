@@ -3,32 +3,27 @@
 <p>🔵 Main goal of this reapo is to push my programing skill forward</p>
 <p>🔵 Also I want to get out of "tutoral hell"</p>
 <br>
-<h2>Topic to learn:</h2>
 <ul>
-  <ul>
-    <h4>✅ Build simple Api (Todo api)</h4>
-    <p>Topics:</p>
-      <li>ASP .Net core model hostowania customowanie aplikacji</li>
-      <li>CRUD model</li>
-      <li>Endpoit routing</li>
-      <li>Middleweres</li>
-      <li>Endpoit filters</li>
-      <li>Dependency injection</li>
-      <p>Note: Lot of this stuf is new to me so I leare a basic princiable of each topic</p>
-  </ul>
-  <ul>
-    <h4>🎓 Entity Framework core</h4>
-    <p>Topics:</p>
-  </ul>
-  <ul>
-    <h4>🎓 MVC - model viev controler:</h4>
-    <p>Topics:</p>
-  </ul>
-  <ul>
-    <h4>🎓 Middleware:</h4>
-    <p>Topics:</p>
-  </ul>
-  
+  <p>Note: Lot of this stuf is new to me so I leare a basic princiable of each topic</p>
+  <h4>✅ What I learnh4>
+  <li>ASP .Net core aplication host model</li>
+  <li>CRUD model</li>
+  <li>Endpoit routing</li>
+  <li>Middleweres</li>
+  <li>Endpoit filters</li>
+  <li>Dependency injection</li>
+  <li>Http protoclo</li>
+  </br>
+  <h4>🎓 What I curently learnig:</h4>
+  <li>Entity Framework core</li>
+  <li>How to set up database</li>
+  <li>How to connect database to app</li>
+  <li>How to make migration</li>
+  </br>
+  <h4>🧐 What I going to learn</h4>
+  <li> MVC - model viev controler</li>
+  </li>Middleware </li>
+  <li>Docker</li>  
 </ul>
 
 <h2>Custom projects:</h2>
