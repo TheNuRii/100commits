@@ -3,9 +3,9 @@ using pokemon_card_api.Model;
 
 namespace pokemon_card_api.Data;
 
-public class DataContex : DbContext
+public class DataContext : DbContext
 {
-    public DataContex(DbContextOptions options) : base(options)
+    public DataContext(DbContextOptions options) : base(options)
     {
         
     }
@@ -16,8 +16,8 @@ public class DataContex : DbContext
     public DbSet<Pokemon> Pokemons { get; set; }
     public DbSet<PokemonCategory> PokemonCategories { get; set; }
     public DbSet<PokemonOwner> PokemonOwners { get; set; }
-    public DbSet<Rewiew> Rewiews { get; set; }
-    public DbSet<Rewiewer> Rewiewers { get; set; }
+    public DbSet<Review> Rewiews { get; set; }
+    public DbSet<Reviewer> Rewiewers { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -33,15 +33,17 @@ public class DataContex : DbContext
             .HasForeignKey(c => c.CategoryId);
         
         modelBuilder.Entity<PokemonOwner>()
-            .HasKey(pc => new { po.PokemonId, po.OwnerId });
+            .HasKey(po => new { po.PokemonId, po.OwnerId });
         modelBuilder.Entity<PokemonOwner>()
             .HasOne(p => p.Pokemon)
-            .WithMany(pc => pc.PokemonOwners)
+            .WithMany(po => po.PokemonOwners)
             .HasForeignKey(c => c.PokemonId);
         modelBuilder.Entity<PokemonOwner>()
             .HasOne(p => p.Owner)
-            .WithMany(pc => pc.PokemonOwners)
+            .WithMany(po => po.PokemonOwners)
             .HasForeignKey(c => c.OwnerId);
+        
+        
 
     }
     
