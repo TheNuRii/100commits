@@ -4,7 +4,6 @@ using pokemon_card_api.Data;
 using pokemon_card_api.Interface;
 using pokemon_card_api.Repository;
 using PokemonReviewApp;
-using pokemon_card_api.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
