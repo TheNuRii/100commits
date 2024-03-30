@@ -7,3 +7,8 @@ public class PokemonDto
     public DateTime BirthDate { get; set; }
 }
 
+public class CategoryDto
+{
+    public int Id { get; set; }
+    public string? Name { get; set; }
+}
