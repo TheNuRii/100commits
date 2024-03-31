@@ -23,7 +23,7 @@ public class CategoryController : Controller
     [HttpGet("{categoryId}")]
     [ProducesResponseType(200, Type = typeof(Category))]
     [ProducesResponseType(400)]
-    public IActionResult GetCategory(int categoryId)
+    public IActionResult GetCategorie(int categoryId)
     {
         if (!_categoryRepository.CategoryExist(categoryId))
             return NotFound();
@@ -32,6 +32,37 @@ public class CategoryController : Controller
 
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
+
+        return Ok(category);
+    }
+
+    [HttpGet]
+    [ProducesResponseType(200, Type = typeof(IEnumerable<Category>))]
+    
+    public IActionResult GetCategorys()
+    {
+        var categories = _mapper.Map<List<CategoryDto>>(_categoryRepository.GetCategories());
+
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
+        return Ok(categories);
+    }
+
+    [HttpGet("categoiresId/category")]
+    [ProducesResponseType(200, Type = typeof(int))]
+    [ProducesResponseType(400)]
+    public IActionResult GetPokemonByCategory(int categoryId)
+    {
+        if (!_categoryRepository.CategoryExist(categoryId))
+            return NotFound();
+
+        var category = _categoryRepository.GetPokemonByCategory(categoryId);
+
+        if (!ModelState.IsValid)
+            return BadRequest();
 
         return Ok(category);
     }
