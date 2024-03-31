@@ -51,7 +51,7 @@ public class CategoryController : Controller
         return Ok(categories);
     }
 
-    [HttpGet("categoiresId/category")]
+    [HttpGet("pokemon/{categoryId}")]
     [ProducesResponseType(200, Type = typeof(int))]
     [ProducesResponseType(400)]
     public IActionResult GetPokemonByCategory(int categoryId)

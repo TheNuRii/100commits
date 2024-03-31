@@ -9,5 +9,6 @@ public class MapingProfile : Profile
     public MapingProfile()
     {
         CreateMap<Pokemon, PokemonDto>();
+        CreateMap<Category, CategoryDto>();
     }
 }
