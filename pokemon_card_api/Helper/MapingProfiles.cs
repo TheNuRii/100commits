@@ -10,5 +10,6 @@ public class MapingProfile : Profile
     {
         CreateMap<Pokemon, PokemonDto>();
         CreateMap<Category, CategoryDto>();
+        CreateMap<Country, CategoryDto>();
     }
 }
