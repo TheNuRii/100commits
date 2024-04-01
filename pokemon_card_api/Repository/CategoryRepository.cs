@@ -1,3 +1,4 @@
+using AutoMapper;
 using pokemon_card_api.Data;
 using pokemon_card_api.Interface;
 using pokemon_card_api.Model;
@@ -6,10 +7,12 @@ namespace pokemon_card_api.Repository;
 
 public class CategoryRepository : ICategoryRepository
 {
-    private DataContext _context;
-    public CategoryRepository(DataContext context)
+    private readonly DataContext _context;
+    private readonly IMapper _mapper;
+    public CategoryRepository(DataContext context, IMapper mapper)
     {
         _context = context;
+        _mapper = mapper;
     }
     public ICollection<Category> GetCategories()
     {

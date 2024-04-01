@@ -1,3 +1,4 @@
+using AutoMapper;
 using pokemon_card_api.Data;
 using pokemon_card_api.Interface;
 using pokemon_card_api.Model;
@@ -7,10 +8,12 @@ namespace pokemon_card_api.Repository;
 public class PokemonRepository : IPokemonRepository 
 {
     private readonly DataContext _context;
+    private readonly IMapper _mapper;
     
-    public PokemonRepository(DataContext context)
+    public PokemonRepository(DataContext context, IMapper mapper)
     {
         _context = context;
+        _mapper = mapper;
     }
 
     public ICollection<Pokemon> GetPokemons()
