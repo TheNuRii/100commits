@@ -6,7 +6,7 @@ using pokemon_card_api.Model;
 
 namespace pokemon_card_api;
 
-[Route("api/[Controller]")]
+[Route("api/[controller]")]
 [ApiController]
 
 public class CountryController : Controller
@@ -56,7 +56,7 @@ public class CountryController : Controller
             _countryRepository.GetCountryByOwner(ownerId));
 
         if (!ModelState.IsValid)
-            return BadRequest();
+            return BadRequest(ModelState);
 
         return Ok(country);
     }
