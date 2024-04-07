@@ -1,6 +1,14 @@
-@MySpot.Api_HostAddress = http://localhost:5200
-
-GET {{MySpot.Api_HostAddress}}/weatherforecast/
-Accept: application/json
+@url = http://localhost:5000
 
 ###
+GET {{url}}/reservations
+
+###
+POST {{url}}/reservations
+Content-Type: application/json
+
+{
+  "EmploteeName": "John Doe",
+  "ParkingSpotName": "P0",
+  "LicensePlate": "PL2137"
+}
