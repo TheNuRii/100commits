@@ -15,19 +15,22 @@ public class ReservationsController : ControllerBase
     };
     
     [HttpGet]
-    public void Get()
-    {
-        
-    }
+    public ActionResult<List<Reservation>> Get() => Ok(Reservations);
 
+    [HttpGet("{id:int}")]
+    public ActionResult<Reservation> Get(int id)
+    {
+        var reservation = Reservations.SingleOrDefault(x => x.Id == id);
+        if (reservation == null)
+            return BadRequest();
+        return Ok(reservation);
+    }
+    
     [HttpPost]
-    public void Post(Reservation reservation)
+    public ActionResult Post(Reservation reservation)
     {
         if (ParkingSpotsNames.All(x => x != reservation.ParkingSpotName))
-        {
-            HttpContext.Response.StatusCode = 400;
-            return;
-        }
+            return BadRequest();
         
         reservation.Date = DateTime.UtcNow.AddDays(1).Date;
         var reservationAlreadyExists = Reservations.Any(x =>
@@ -35,13 +38,34 @@ public class ReservationsController : ControllerBase
             x.Date.Date == reservation.Date.Date);
 
         if (reservationAlreadyExists)
-        {
-            HttpContext.Response.StatusCode = 400;
-            return;
-        }
+            return BadRequest();
         
         reservation.Id = _id;
         _id++;
         Reservations.Add(reservation);
+
+        return CreatedAtAction(nameof(Get), new { id = reservation.Id }, null);
+    }
+    
+    [HttpPut("/{id:int}")]
+    public ActionResult Put(int id,Reservation reservation)
+    {
+        var existingReservation = Reservations.SingleOrDefault(x => x.Id == id);
+        if (existingReservation == null)
+            return NotFound();
+
+        existingReservation.LicensePlate = reservation.LicensePlate;
+        return NoContent();
+    }
+    
+    [HttpDelete("/{id:int}")]
+    public ActionResult Delete(int id)
+    {
+        var existingReservation = Reservations.SingleOrDefault(x => x.Id == id);
+        if (existingReservation == null)
+            return NotFound();
+
+        Reservations.Remove(existingReservation);
+        return NoContent();
     }
 }
