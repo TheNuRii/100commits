@@ -24,3 +24,6 @@ Content-Type: application/json
 {
   "licensePlate": "XYZ123"
 }
+
+###
+DELETE {{url}}/reservations/{{reservationID}}
