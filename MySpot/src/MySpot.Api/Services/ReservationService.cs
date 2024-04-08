@@ -19,7 +19,14 @@ public class ReservationService
 
     public int? Crete(Reservation reservation)
     {
+        var now = DateTime.UtcNow.Date;
+        var pastDay = now.DayOfWeek is DayOfWeek.Sunday ? 7 : (int)now.DayOfWeek;
+        var remaingDays = 7 - pastDay; 
+        
         if (ParkingSpotsNames.All(x => x != reservation.ParkingSpotName))
+            return default;
+
+        if (string.IsNullOrWhiteSpace(reservation.LicensePlate))
             return default;
         
         reservation.Date = DateTime.UtcNow.AddDays(1).Date;
@@ -28,6 +35,9 @@ public class ReservationService
             x.Date.Date == reservation.Date.Date);
 
         if (reservationAlreadyExists)
+            return default;
+
+        if (!(reservation.Date.Date >= now && reservation.Date.Date <= now.AddDays(remaingDays)))
             return default;
         
         reservation.Id = _id;
@@ -42,6 +52,12 @@ public class ReservationService
         var existingReservation = Reservations.SingleOrDefault(x => x.Id == reservation.Id);
         if (existingReservation == null)
             return false;
+
+        if (existingReservation.Date <= DateTime.UtcNow)
+            return false;
+        
+        if (string.IsNullOrWhiteSpace(reservation.LicensePlate))
+            return default;
 
         existingReservation.LicensePlate = reservation.LicensePlate;
         return true;
