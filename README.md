@@ -3,6 +3,7 @@
 <p>🔵 Main goal of this reapo is to push my programing skill forward</p>
 <p>🔵 Also I want to get out of "tutoral hell"</p>
 <P>🔵 Lot of this stuf is new to me so I leare a basic princiable of each topic and try to dive deep in to it</P>
+<p></p>
 <br>
 <ul>
   <h4>✅ What I learn <h4>
@@ -42,4 +43,10 @@
   <li>📗 <a href="https://helion.pl/ksiazki/inzynieria-oprogramowania-wedlug-google-czego-warto-sie-nauczyc-o-tworzeniu-oprogramowania-titus-winters-tom-manshreck-hyrum-wright,iogoog.htm#format/d">Inżynieria oprogramowania według Google.</a></li>
   <li>📗 <a href="https://www.youtube.com/@DevMentorsPL/featured">Youtubie channel: Devmentors</a></li>
   <li>📗 <a href="https://www.youtube.com/@TeddySmithDev/featured">Youtubie channel:Teddy Smith</a></li>
+</ul>
+<h3>📚 Coursers I used:</h3>
+<ul>
+  <li>ZTM: From zero to masterc C# and .NET freamwork</li>
+  <li>Devmentors: SOLDne Web API</li>
+  <li>Devmentors: Mikroserwisy .NET</li>
 </ul>
