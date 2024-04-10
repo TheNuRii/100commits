@@ -1,39 +1,33 @@
 <h1>100 commits</h1>
 <h3>Description:</h3>
 <p>🔵 Main goal of this reapo is to push my programing skill forward</p>
-<p>🔵 Also I want to get out of "tutoral hell"</p>
-<P>🔵 Lot of this stuf is new to me so I leare a basic princiable of each topic and try to dive deep in to it</P>
+<P>🔵 and expand my knowlage about Backend</P>
 <p></p>
 <br>
 <ul>
-  <h4>✅ What I learn <h4>
+  <h4>✅ What I learn </h4>
   <li>ASP .Net core aplication host model</li>
   <li>CRUD model</li>
   <li>Endpoit routing</li>
-  <li>Middleweres</li>
   <li>Endpoit filters</li>
   <li>Dependency injection</li>
   <li>Http protoclo</li>
+  <li>Entity Framework core</li>
   </br>
   <h4>🎓 What I curently learnig:</h4>
-  <li>Entity Framework core</li>
-  <li>How to set up database</li>
-  <li>How to connect database to app</li>
-  <li>How to make migration</li>
+    <li>Middleware </li>
+    <li>REST API and it's prinicalbes</li>
   </br>
   <h4>🧐 What I going to learn</h4>
   <li> MVC - model viev controler</li>
-  <li>Middleware </li>
-  <li>Docker</li>  
+  <li>Docker</li>
+  <li>How to set up database</li>
+  <li>How to connect database to app</li>
+  <li>How to make migration</li>
 </ul>
 </br>
-<h2>Custom projects:</h2>
-<p>My ideas</p>
-<ul>
-  <li>Register user or login interface (MVC model)</li>
-  <li>Chatroom</li>
-  <li>some CLI tool</li>
-</ul>
+<h2>My Resource for this hackaton:</h2>
+</br>
 <h3>📚 Documetation and learing materials that I use:</h3>
 <ul>
   <li>📗 <a href="https://www.youtube.com/@dotnet/playlists">.Net Youtube channel</a></li>
@@ -44,6 +38,7 @@
   <li>📗 <a href="https://www.youtube.com/@DevMentorsPL/featured">Youtubie channel: Devmentors</a></li>
   <li>📗 <a href="https://www.youtube.com/@TeddySmithDev/featured">Youtubie channel:Teddy Smith</a></li>
 </ul>
+</br>
 <h3>📚 Coursers I used:</h3>
 <ul>
   <li>ZTM: From zero to masterc C# and .NET freamwork</li>
