@@ -1,4 +1,4 @@
-using MySpot.Api.Models;
+using MySpot.Api.Entities;
 
 namespace MySpot.Api.Services;
 

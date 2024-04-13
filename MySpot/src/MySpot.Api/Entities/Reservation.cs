@@ -1,3 +1,5 @@
+using MySpot.Api.Exceptions;
+
 namespace MySpot.Api.Entities;
 
 public class Reservation
@@ -19,7 +21,7 @@ public class Reservation
     public void ChangeLicensePlate(string licensePlate)
     {
         if (string.IsNullOrWhiteSpace(licensePlate))
-            throw new ArgumentException("License plate is invalid.");
+            throw new EmptyLicensePlateException();
 
         LicensePlate = licensePlate;
     }
