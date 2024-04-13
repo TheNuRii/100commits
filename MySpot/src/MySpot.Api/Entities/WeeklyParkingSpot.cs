@@ -25,7 +25,15 @@ public class WeeklyParkingSpot
                             reservation.Date.Date > To ||
                             reservation.Date.Date < DateTime.UtcNow.Date;
         if (isInvalidDate)
-            throw new InvaliReservationDateException(reservation.Date);
+            throw new InvalidReservationDateException(reservation.Date);
+        
+        var reservationAlreadyExists = Reservations.Any(x =>
+            x.Date.Date == reservation.Date.Date);
+
+        if (reservationAlreadyExists)
+            throw new ParkingSpotAlreadyReservedException(Name, reservation.Date);
+
+        _reservations.Add(reservation);
     }
 }
 
