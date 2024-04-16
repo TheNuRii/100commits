@@ -41,33 +41,38 @@ public class ReservationService
         return reservation.Id;
     }
 
-    public bool Update(ChangeReservationLicencePlate comand)
+    public bool Update(ChangeReservationLicencePlate command)
     {
-        var weeklyParkingSpot = Reservations.SingleOrDefault(x => x.Id == reservation.Id);
+        var weeklyParkingSpopt = GetWeeklyParkingSpotByReservation(command.ReservationId);
+        if (weeklyParkingSpopt is null)
+            return false;
+        
+        var existingReservation = weeklyParkingSpopt.Reservations.SingleOrDefault(x => x.Id == command.ReservationId);
         if (existingReservation == null)
             return false;
 
         if (existingReservation.Date <= DateTime.UtcNow)
             return false;
         
-        if (string.IsNullOrWhiteSpace(reservation.LicensePlate))
-            return default;
-
-        existingReservation.LicensePlate = reservation.LicensePlate;
+        existingReservation.ChangeLicensePlate(command.LicencePlate);
         return true;
     }
 
-    public bool Delete(int id)
+    public bool Delete(DeleteReservation command)
     {
-        var existingReservation = Reservations.SingleOrDefault(x => x.Id == id);
+        var weeklyParkingSpot = GetWeeklyParkingSpotByReservation(command.ReservationId);
+        if (weeklyParkingSpot is null)
+            return false;
+        
+        var existingReservation = weeklyParkingSpot.Reservations.SingleOrDefault(x => x.Id == command.ReservationId);
         if (existingReservation == null)
             return false;
 
-        Reservations.Remove(existingReservation);
+        weeklyParkingSpot.RemoveReservation(command.ReservationId);
         return true;
     }
 
-    private WeeklyParkingSpot getWeeklyParkingSpotByReservation(Guid reservationId)
+    private WeeklyParkingSpot GetWeeklyParkingSpotByReservation(Guid reservationId)
         => WeeklyParkingSpots.SingleOrDefault(x => x.Reservations.Any(r => r.Id == reservationId));
 }
 

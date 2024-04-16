@@ -35,5 +35,11 @@ public class WeeklyParkingSpot
 
         _reservations.Add(reservation);
     }
+    
+    // Comeback later 
+    public void RemoveReservation(Guid commandReservationId)
+    {
+        throw new NotImplementedException();
+    }
 }
 

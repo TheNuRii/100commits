@@ -35,22 +35,20 @@ public class ReservationsController : ControllerBase
     }
     
     [HttpPut("{id:guid}")]
-    public ActionResult Put(Guid id,Reservation reservation)
+    public ActionResult Put(Guid id, ChangeReservationLicencePlate command)
     {
-        reservation.Id = id;
-        if (_service.Update(reservation))
+        if (_service.Update(command with { ReservationId = id }))
             return NoContent();
-
+            
         return NotFound();
     }
     
     [HttpDelete("{id:guid}")]
     public ActionResult Delete(Guid id)
-    {
-        var reservation = _service.Get(id);
-        if (_service.Update(reservation))
+    { 
+        if (_service.Delete(new DeleteReservation(id)))
             return NoContent();
-
+        
         return NotFound();
     }
 }
