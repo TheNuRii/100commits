@@ -1,9 +1,8 @@
 namespace MySpot.Api.Exceptions;
 
-public class EmptyLicensePlateException : Exception
+public sealed class EmptyLicensePlateException : CustomException
 {
     public EmptyLicensePlateException() : base("License plate is empty")
     {
-        
     }
 }

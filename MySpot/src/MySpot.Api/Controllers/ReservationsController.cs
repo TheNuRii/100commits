@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using MySpot.Api.Commands;
-using MySpot.Api.Entities;
+using MySpot.Api.DTO;
 using MySpot.Api.Services;
 
 namespace MySpot.Api.Controllers;
@@ -12,10 +12,10 @@ public class ReservationsController : ControllerBase
     private readonly ReservationService _service = new();
     
     [HttpGet]
-    public ActionResult<List<Reservation>> Get() => Ok(_service.GetAllWeekly());
+    public ActionResult<List<ReservationDto>> Get() => Ok(_service.GetAllWeekly());
 
     [HttpGet("{id:guid}")]
-    public ActionResult<Reservation> Get(Guid id)
+    public ActionResult<ReservationDto> Get(Guid id)
     {
         var reservation = _service.Get(id);
         if (reservation is null)
