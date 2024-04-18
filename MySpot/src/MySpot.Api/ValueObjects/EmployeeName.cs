@@ -5,12 +5,18 @@ namespace MySpot.Api.ValueObjects;
 
 public sealed record EmployeeName
 {
-    public string Value { get; } = Value ?? throw new CustomException();
+    public string Value { get; }
+
+    public EmployeeName(string value)
+    {
+        if (value == null)
+            throw new Exception();
+        Value = value;
+    }
 
     public static implicit operator string(EmployeeName name)
         => name.Value;
 
     public static implicit operator EmployeeName(string value)
         => new(value);
-
 }
