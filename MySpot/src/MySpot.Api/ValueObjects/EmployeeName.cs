@@ -10,7 +10,7 @@ public sealed record EmployeeName
     public EmployeeName(string value)
     {
         if (value == null)
-            throw new Exception();
+            throw new InvaildEmployeeNameException(value);
         Value = value;
     }
 

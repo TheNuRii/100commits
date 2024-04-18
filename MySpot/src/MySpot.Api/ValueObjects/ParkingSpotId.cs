@@ -1,3 +1,5 @@
+using MySpot.Api.Exceptions;
+
 namespace MySpot.Api.ValueObjects;
 
 public sealed record ParkingSpotId
@@ -7,7 +9,7 @@ public sealed record ParkingSpotId
     public ParkingSpotId(Guid value)
     {
         if (value == Guid.Empty)
-            throw new Exception();
+            throw new InvalidEntityIdException(value);
         Value = value;
     }
 
