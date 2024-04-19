@@ -11,7 +11,7 @@ public class Reservation
     public LicensePlate LicensePlate { get; private set; }
     public DateTime Date { get; private set; }
     
-    public Reservation(Guid id, Guid parkingSpotId, string emploteeName, LicensePlate licensePlate, DateTime date)
+    public Reservation(Guid id, Guid parkingSpotId, string emploteeName, LicensePlate licensePlate, Date date)
     {
         Id = id;
         ParkingSpotId = parkingSpotId;

@@ -1,4 +1,6 @@
 using MySpot.Api.Exceptions;
+using MySpot.Api.ValueObjects;
+
 namespace MySpot.Api.Entities;
 
 public class WeeklyParkingSpot
@@ -6,23 +8,22 @@ public class WeeklyParkingSpot
     private readonly HashSet<Reservation> _reservations = new();
     
     public Guid Id { get; }
-    public DateTime From { get; }
-    public DateTime To { get; }
+
+    public Week Week { get; set; }
     public string Name { get; }
     public IEnumerable<Reservation> Reservations => _reservations;
     
-    public WeeklyParkingSpot(Guid id, DateTime from, DateTime to, string name)
+    public WeeklyParkingSpot(ParkingSpotId id, Week week, string name)
     {
         Id = id;
-        From = from;
-        To = to;
+        Week = week;
         Name = name;
     }
 
-    public void Addreservation(Reservation reservation, DateTime now)
+    public void Addreservation(Reservation reservation, Date now)
     {
-        var isInvalidDate = reservation.Date.Date < From || 
-                            reservation.Date.Date > To ||
+        var isInvalidDate = reservation.Date < Week.From || 
+                            reservation.Date > Week.To ||
                             reservation.Date.Date < now;
         if (isInvalidDate)
             throw new InvalidReservationDateException(reservation.Date);
@@ -37,9 +38,7 @@ public class WeeklyParkingSpot
     }
     
     // Comeback later 
-    public void RemoveReservation(Guid commandReservationId)
-    {
-        throw new NotImplementedException();
-    }
+    public void RemoveReservation(ReservationId reservationId)
+        => _reservations.RemoveWhere(x => x.Id == reservationId);
 }
 
