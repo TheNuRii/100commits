@@ -9,7 +9,7 @@ public class Reservation
     public Guid ParkingSpotId  { get; private set; }
     public string EmploteeName { get; private set; }
     public LicensePlate LicensePlate { get; private set; }
-    public DateTime Date { get; private set; }
+    public Date Date { get; private set; }
     
     public Reservation(Guid id, Guid parkingSpotId, string emploteeName, LicensePlate licensePlate, Date date)
     {
