@@ -11,6 +11,7 @@ namespace MySpot.Api.Controllers;
 [ApiController]
 public class ReservationsController : ControllerBase
 {
+    private readonly Clock _clock;
     private static readonly Clock Clock = new();
     private static readonly ReservationService _service = new(new()
         {
@@ -19,8 +20,12 @@ public class ReservationsController : ControllerBase
             new WeeklyParkingSpot(Guid.Parse("00000000-0000-0000-0000-000000000003"), new Week(Clock.Current()),  "P3"),
             new WeeklyParkingSpot(Guid.Parse("00000000-0000-0000-0000-000000000004"), new Week(Clock.Current()),  "P4"),
             new WeeklyParkingSpot(Guid.Parse("00000000-0000-0000-0000-000000000005"), new Week(Clock.Current()),  "P5"),
-        }
-            );
+        });
+
+    public ReservationsController(Clock clock)
+    {
+        _clock = clock;
+    }
     
     [HttpGet]
     public ActionResult<List<ReservationDto>> Get() => Ok(_service.GetAllWeekly());

@@ -1,6 +1,9 @@
-var builder = WebApplication.CreateBuilder(args);
+using MySpot.Api.Services;
 
-builder.Services.AddControllers();
+var builder = WebApplication.CreateBuilder(args);
+builder.Services
+    .AddScoped<Clock>()
+    .AddControllers();
 
 var app = builder.Build();
 
