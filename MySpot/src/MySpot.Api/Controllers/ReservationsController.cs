@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using MySpot.Api.Commands;
 using MySpot.Api.DTO;
+using MySpot.Api.Entities;
 using MySpot.Api.Services;
+using MySpot.Api.ValueObjects;
 
 namespace MySpot.Api.Controllers;
 
@@ -9,7 +11,16 @@ namespace MySpot.Api.Controllers;
 [ApiController]
 public class ReservationsController : ControllerBase
 {
-    private readonly ReservationService _service = new();
+    private static readonly Clock Clock = new();
+    private static readonly ReservationService _service = new(new()
+        {
+            new WeeklyParkingSpot(Guid.Parse("00000000-0000-0000-0000-000000000001"), new Week(Clock.Current()),  "P1"),
+            new WeeklyParkingSpot(Guid.Parse("00000000-0000-0000-0000-000000000002"), new Week(Clock.Current()),  "P2"),
+            new WeeklyParkingSpot(Guid.Parse("00000000-0000-0000-0000-000000000003"), new Week(Clock.Current()),  "P3"),
+            new WeeklyParkingSpot(Guid.Parse("00000000-0000-0000-0000-000000000004"), new Week(Clock.Current()),  "P4"),
+            new WeeklyParkingSpot(Guid.Parse("00000000-0000-0000-0000-000000000005"), new Week(Clock.Current()),  "P5"),
+        }
+            );
     
     [HttpGet]
     public ActionResult<List<ReservationDto>> Get() => Ok(_service.GetAllWeekly());
