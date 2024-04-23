@@ -5,14 +5,12 @@ using MySpot.Api.ValueObjects;
 
 namespace MySpot.Api.Services;
 
-public class ReservationService
+public class ReservationService : IReservationService
 {
     private static readonly Clock Clock = new();
-    private readonly List<WeeklyParkingSpot> _weeklyParkingSpots;
+    private readonly IEnumerable<WeeklyParkingSpot> _weeklyParkingSpots;
     
-    
-
-    public ReservationService(List<WeeklyParkingSpot> weeklyParkingSpots)
+    public ReservationService(IClock clock,IEnumerable<WeeklyParkingSpot> weeklyParkingSpots)
     {
         _weeklyParkingSpots = weeklyParkingSpots;
     }
@@ -29,7 +27,7 @@ public class ReservationService
                 Date = x.Date.Value.Date,
             });
 
-    public Guid? Crete(CreateReservation command)
+    public Guid? Create(CreateReservation command)
     {
         var weeklyParkingSpot = _weeklyParkingSpots.SingleOrDefault(x => x.Id == command.ParkingSpotId);
         if (weeklyParkingSpot is null)

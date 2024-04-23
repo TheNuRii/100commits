@@ -17,7 +17,7 @@ public class ReservationServiceTests
             Guid.NewGuid(), DateTime.UtcNow.AddMinutes(5), "John Doe","XYZ123");
         
         //Act
-        var reservationId = _reservationService.Crete(command);
+        var reservationId = _reservationService.Create(command);
 
         reservationId.ShouldNotBeNull();
         reservationId.Value.ShouldBe(command.ReservationId);
@@ -25,7 +25,7 @@ public class ReservationServiceTests
 
     #region Arrange
     
-    private readonly Clock _clock = new();
+    private readonly IClock _clock = new Clock();
     private readonly ReservationService _reservationService;
     private readonly List<WeeklyParkingSpot> _weeklyParkingSpots;
 
@@ -39,7 +39,7 @@ public class ReservationServiceTests
             new(Guid.Parse("00000000-0000-0000-0000-000000000004"), new Week(_clock.Current()),  "P4"),
             new(Guid.Parse("00000000-0000-0000-0000-000000000005"), new Week(_clock.Current()),  "P5"),
         };
-        _reservationService = new ReservationService(_weeklyParkingSpots);
+        _reservationService = new ReservationService(_clock, _weeklyParkingSpots);
     }
 
     #endregion
