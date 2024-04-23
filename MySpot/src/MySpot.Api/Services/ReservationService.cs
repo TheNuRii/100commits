@@ -2,23 +2,25 @@ using MySpot.Api.Commands;
 using MySpot.Api.Entities;
 using MySpot.Api.DTO;
 using MySpot.Api.ValueObjects;
+using MySpot.Api.Repositories;
 
 namespace MySpot.Api.Services;
 
 public class ReservationService : IReservationService
 {
-    private static readonly Clock Clock = new();
-    private readonly IEnumerable<WeeklyParkingSpot> _weeklyParkingSpots;
+    private readonly IClock _clock;
+    private readonly IWeeklyParkingSpotRepository _weeklyParkingSpotsRepository;
     
-    public ReservationService(IClock clock,IEnumerable<WeeklyParkingSpot> weeklyParkingSpots)
+    public ReservationService(IClock clock, IWeeklyParkingSpotRepository weeklyParkingSpotRepository)
     {
-        _weeklyParkingSpots = weeklyParkingSpots;
+        _clock = clock;
+        _weeklyParkingSpotsRepository = weeklyParkingSpotRepository;
     }
     public ReservationDto Get(Guid id)
         => GetAllWeekly().SingleOrDefault(x => x.Id == id);
 
     public IEnumerable<ReservationDto> GetAllWeekly()
-        => _weeklyParkingSpots.SelectMany(x => x.Reservations)
+        => _weeklyParkingSpotsRepository.GetAll().SelectMany(x => x.Id)
             .Select(x => new ReservationDto
             {
                 Id = x.Id,
@@ -29,13 +31,14 @@ public class ReservationService : IReservationService
 
     public Guid? Create(CreateReservation command)
     {
-        var weeklyParkingSpot = _weeklyParkingSpots.SingleOrDefault(x => x.Id == command.ParkingSpotId);
+        var parkingSpotId = new ParkingSpotId(command.ParkingSpotId);
+        var weeklyParkingSpot = _weeklyParkingSpotsRepository.Get(parkingSpotId);
         if (weeklyParkingSpot is null)
             return default;
 
         var reservation = new Reservation(command.ReservationId, command.ParkingSpotId, command.EmployeeName,
             command.LicencePlate, new Date(command.Date));
-        weeklyParkingSpot.Addreservation(reservation, Clock.Current());
+        weeklyParkingSpot.Addreservation(reservation, new Date(_clock.Current()));
         
         return reservation.Id;
     }
@@ -50,7 +53,7 @@ public class ReservationService : IReservationService
         if (existingReservation == null)
             return false;
 
-        if (existingReservation.Date <= Clock.Current())
+        if (existingReservation.Date <= _clock.Current())
             return false;
         
         existingReservation.ChangeLicensePlate(command.LicencePlate);
@@ -72,6 +75,7 @@ public class ReservationService : IReservationService
     }
 
     private WeeklyParkingSpot GetWeeklyParkingSpotByReservation(Guid reservationId)
-        => _weeklyParkingSpots.SingleOrDefault(x => x.Reservations.Any(r => r.Id == reservationId));
+        => _weeklyParkingSpotsRepository.GetAll()
+            .SingleOrDefault(x => x.Reservations.Any(r => r.Id == reservationId));
 }
 
