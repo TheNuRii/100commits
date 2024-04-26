@@ -1,7 +1,4 @@
-using MySpot.Api.Exceptions;
-using MySpot.Api.ValueObjects;
-
-namespace MySpot.Api.Entities;
+namespace MySpot.Core.Entities;
 
 public class Reservation
 {

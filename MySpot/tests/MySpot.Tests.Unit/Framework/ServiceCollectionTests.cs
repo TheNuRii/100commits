@@ -1,7 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
-using MySpot.Api.Services;
-using Shouldly;
-using Xunit;
+
 namespace MySpot.Tests.Unit.Framework;
 
 public class ServiceCollectionTests

@@ -1,4 +1,4 @@
-namespace MySpot.Api.Exceptions;
+namespace MySpot.Core.Exceptions;
 
 public sealed class EmptyLicensePlateException : CustomException
 {
