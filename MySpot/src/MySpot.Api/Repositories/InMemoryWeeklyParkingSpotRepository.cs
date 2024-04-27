@@ -1,10 +1,9 @@
-using MySpot.Api.Services;
 using MySpot.Core.Entities;
 using MySpot.Core.ValueObjects;
 
 namespace MySpot.Api.Repositories;
 
-public class InMemoryWeeklyParkingSpotRepository : IWeeklyParkingSpotRepository
+public class InMemoryWeeklyParkingSpotRepository<ReservationDto> : IWeeklyParkingSpotRepository
 {
     private readonly IClock _clock;
     private readonly List<WeeklyParkingSpot> _weeklyParkingSpots;
@@ -21,9 +20,10 @@ public class InMemoryWeeklyParkingSpotRepository : IWeeklyParkingSpotRepository
             new(Guid.Parse("00000000-0000-0000-0000-000000000005"), new Week(clock.Current()), "P5"),
         };
     }
+    
 
     public WeeklyParkingSpot Get(ParkingSpotId id)
-        => _weeklyParkingSpots.SingleOrDefault(x => x.Id == id);
+        => _weeklyParkingSpots.SingleOrDefault(x => id.Equals(x.Id));
 
     public IEnumerable<WeeklyParkingSpot> GetAll()
         => _weeklyParkingSpots;

@@ -1,4 +1,4 @@
-namespace MySpot.Api.Commands;
+namespace MySpot.Aplication.Commands;
 
 public record DeleteReservation(Guid ReservationId);
 

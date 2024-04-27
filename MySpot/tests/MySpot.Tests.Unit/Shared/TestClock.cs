@@ -1,4 +1,4 @@
-using MySpot.Api.Services;
+using MySpot.Aplication.Services;
 using MySpot.Core.ValueObjects;
 
 namespace MySpot.Tests.Unit.Shared;

@@ -1,7 +1,7 @@
-using MySpot.Api.Commands;
-using MySpot.Api.DTO;
+using MySpot.Aplication.Commands;
+using MySpot.Aplication.DTO;
 
-namespace MySpot.Api.Services;
+namespace MySpot.Aplication.Services;
 
 public interface IReservationService
 {

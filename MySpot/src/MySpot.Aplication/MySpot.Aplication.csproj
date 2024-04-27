@@ -5,4 +5,9 @@
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\MySpot.Api\MySpot.Api.csproj" />
+      <ProjectReference Include="..\MySpot.Core\MySpot.Core.csproj" />
+    </ItemGroup>
+
 </Project>

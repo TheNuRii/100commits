@@ -1,10 +1,10 @@
-using MySpot.Api.Commands;
-using MySpot.Api.DTO;
 using MySpot.Api.Repositories;
+using MySpot.Aplication.Commands;
+using MySpot.Aplication.DTO;
 using MySpot.Core.Entities;
 using MySpot.Core.ValueObjects;
 
-namespace MySpot.Api.Services;
+namespace MySpot.Aplication.Services;
 
 public class ReservationService : IReservationService
 {
@@ -20,14 +20,8 @@ public class ReservationService : IReservationService
         => GetAllWeekly().SingleOrDefault(x => x.Id == id);
 
     public IEnumerable<ReservationDto> GetAllWeekly()
-        => _weeklyParkingSpotsRepository.GetAll().SelectMany(x => x.Id)
-            .Select(x => new ReservationDto
-            {
-                Id = x.Id,
-                ParkingSpotId = x.ParkingSpotId,
-                EmplyeeName = x.EmploteeName,
-                Date = x.Date.Value.Date,
-            });
+        => _weeklyParkingSpotsRepository.GetAll().Select(x => new ReservationDto());
+           
 
     public Guid? Create(CreateReservation command)
     {

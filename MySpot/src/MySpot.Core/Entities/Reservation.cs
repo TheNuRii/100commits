@@ -1,3 +1,5 @@
+using MySpot.Core.ValueObjects;
+
 namespace MySpot.Core.Entities;
 
 public class Reservation

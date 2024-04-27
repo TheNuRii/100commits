@@ -1,6 +1,6 @@
-using MySpot.Api.Commands;
 using MySpot.Api.Repositories;
-using MySpot.Api.Services;
+using MySpot.Aplication.Commands;
+using MySpot.Aplication.Services;
 using MySpot.Tests.Unit.Shared;
 using Shouldly;
 
@@ -25,13 +25,13 @@ public class ReservationServiceTests
 
     #region Arrange
 
-    private readonly IClock _clock;
     private readonly IWeeklyParkingSpotRepository _weeklyParkingSpotRepository;
     private readonly IReservationService _reservationService;
+    private readonly IClock _clock;
 
-    public ReservationServiceTests()
+    public ReservationServiceTests(IClock clock)
     {
-        _clock = new TestClock();
+        _clock = clock;
         _weeklyParkingSpotRepository = new InMemoryWeeklyParkingSpotRepository(_clock);
         _reservationService = new ReservationService(_clock, _weeklyParkingSpotRepository);
     }

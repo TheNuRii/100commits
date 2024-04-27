@@ -1,5 +1,5 @@
 using MySpot.Api.Repositories;
-using MySpot.Api.Services;
+using MySpot.
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services
