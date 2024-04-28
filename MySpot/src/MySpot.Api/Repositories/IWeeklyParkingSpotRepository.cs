@@ -10,5 +10,4 @@ public interface IWeeklyParkingSpotRepository
     void Add(WeeklyParkingSpot weeklyParkingSpot);
     void Update(WeeklyParkingSpot weeklyParkingSpot);
     void Delete(WeeklyParkingSpot weeklyParkingSpot);
-    IEnumerable<ReservationDto> GetAll(Func<object, ReservationDto> func);
 }

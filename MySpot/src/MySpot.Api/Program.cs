@@ -1,11 +1,15 @@
 <<<<<<< HEAD
 using MySpot.Api.Repositories;
+<<<<<<< HEAD
 using MySpot.
 =======
 using MySpot.Api.Entities;
 using MySpot.Api.Services;
 using MySpot.Api.ValueObjects;
 >>>>>>> parent of 8048d5b (Dependency Inversion Principle)
+=======
+using MySpot.Api.Services;
+>>>>>>> parent of d63e74c (Create Aplication Layer and refactoring codebase)
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services

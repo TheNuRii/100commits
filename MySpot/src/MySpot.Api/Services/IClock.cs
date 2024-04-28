@@ -1,6 +1,6 @@
 using MySpot.Core.ValueObjects;
 
-namespace MySpot.Aplication.Services;
+namespace MySpot.Api.Services;
 
 public interface IClock
 {

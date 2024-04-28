@@ -1,7 +1,10 @@
 <<<<<<< HEAD:MySpot/src/MySpot.Aplication/Services/ReservationService.cs
+<<<<<<< HEAD:MySpot/src/MySpot.Aplication/Services/ReservationService.cs
+=======
+using MySpot.Api.Commands;
+using MySpot.Api.DTO;
+>>>>>>> parent of d63e74c (Create Aplication Layer and refactoring codebase):MySpot/src/MySpot.Api/Services/ReservationService.cs
 using MySpot.Api.Repositories;
-using MySpot.Aplication.Commands;
-using MySpot.Aplication.DTO;
 using MySpot.Core.Entities;
 using MySpot.Core.ValueObjects;
 =======
@@ -11,7 +14,7 @@ using MySpot.Api.DTO;
 using MySpot.Api.ValueObjects;
 >>>>>>> parent of 8048d5b (Dependency Inversion Principle):MySpot/src/MySpot.Api/Services/ReservationService.cs
 
-namespace MySpot.Aplication.Services;
+namespace MySpot.Api.Services;
 
 public class ReservationService : IReservationService
 {
@@ -35,10 +38,14 @@ public class ReservationService : IReservationService
 
     public IEnumerable<ReservationDto> GetAllWeekly()
 <<<<<<< HEAD:MySpot/src/MySpot.Aplication/Services/ReservationService.cs
+<<<<<<< HEAD:MySpot/src/MySpot.Aplication/Services/ReservationService.cs
         => _weeklyParkingSpotsRepository.GetAll().Select(x => new ReservationDto());
            
 =======
         => _weeklyParkingSpots.SelectMany(x => x.Reservations)
+=======
+        => _weeklyParkingSpotsRepository.GetAll().SelectMany(x => x.Id)
+>>>>>>> parent of d63e74c (Create Aplication Layer and refactoring codebase):MySpot/src/MySpot.Api/Services/ReservationService.cs
             .Select(x => new ReservationDto
             {
                 Id = x.Id,
@@ -46,7 +53,10 @@ public class ReservationService : IReservationService
                 EmplyeeName = x.EmploteeName,
                 Date = x.Date.Value.Date,
             });
+<<<<<<< HEAD:MySpot/src/MySpot.Aplication/Services/ReservationService.cs
 >>>>>>> parent of 8048d5b (Dependency Inversion Principle):MySpot/src/MySpot.Api/Services/ReservationService.cs
+=======
+>>>>>>> parent of d63e74c (Create Aplication Layer and refactoring codebase):MySpot/src/MySpot.Api/Services/ReservationService.cs
 
     public Guid? Create(CreateReservation command)
     {

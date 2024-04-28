@@ -1,4 +1,4 @@
-namespace MySpot.Aplication.Commands;
+namespace MySpot.Api.Commands;
 
 public record ChangeReservationLicencePlate(Guid ReservationId, string LicencePlate);
 
