@@ -23,7 +23,7 @@ public class InMemoryWeeklyParkingSpotRepository : IWeeklyParkingSpotRepository
     }
 
     public WeeklyParkingSpot Get(ParkingSpotId id)
-        => _weeklyParkingSpots.SingleOrDefault(x => x.Id == id);
+        => _weeklyParkingSpots.SingleOrDefault(x => x.Id.Equals(id));
 
     public IEnumerable<WeeklyParkingSpot> GetAll()
         => _weeklyParkingSpots;

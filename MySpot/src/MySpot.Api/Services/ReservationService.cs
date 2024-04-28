@@ -1,72 +1,35 @@
-<<<<<<< HEAD:MySpot/src/MySpot.Aplication/Services/ReservationService.cs
-<<<<<<< HEAD:MySpot/src/MySpot.Aplication/Services/ReservationService.cs
-=======
 using MySpot.Api.Commands;
-using MySpot.Api.Entities;
 using MySpot.Api.DTO;
-<<<<<<< HEAD
->>>>>>> parent of d63e74c (Create Aplication Layer and refactoring codebase):MySpot/src/MySpot.Api/Services/ReservationService.cs
-using MySpot.Api.Repositories;
-using MySpot.Core.Entities;
-using MySpot.Core.ValueObjects;
-=======
-using MySpot.Api.Commands;
 using MySpot.Api.Entities;
-using MySpot.Api.DTO;
-using MySpot.Api.ValueObjects;
->>>>>>> parent of 8048d5b (Dependency Inversion Principle):MySpot/src/MySpot.Api/Services/ReservationService.cs
-=======
-using MySpot.Api.ValueObjects;
 using MySpot.Api.Repositories;
->>>>>>> parent of f72881c (Creating new project to capsulete ValueObjects, Exceptions, Entities)
+using MySpot.Api.ValueObjects;
 
 namespace MySpot.Api.Services;
 
 public class ReservationService : IReservationService
 {
     private static readonly Clock Clock = new();
-    private readonly IEnumerable<WeeklyParkingSpot> _weeklyParkingSpots;
-    
-<<<<<<< HEAD
-<<<<<<< HEAD:MySpot/src/MySpot.Aplication/Services/ReservationService.cs
-    public ReservationService(IClock clock, InMemoryWeeklyParkingSpotRepository weeklyParkingSpotRepository)
-=======
-    public ReservationService(IClock clock,IEnumerable<WeeklyParkingSpot> weeklyParkingSpots)
->>>>>>> parent of 8048d5b (Dependency Inversion Principle):MySpot/src/MySpot.Api/Services/ReservationService.cs
-=======
+    private readonly IEnumerable<IWeeklyParkingSpotRepository> _weeklyParkingSpotsRepositories;
+    private readonly IWeeklyParkingSpotRepository _weeklyParkingSpot;
     public ReservationService(IClock clock, IWeeklyParkingSpotRepository weeklyParkingSpotRepository)
->>>>>>> parent of 34bab31 (test)
     {
-        _weeklyParkingSpots = weeklyParkingSpots;
+        _weeklyParkingSpot = weeklyParkingSpot;
     }
     public ReservationDto Get(Guid id)
         => GetAllWeekly().SingleOrDefault(x => x.Id == id);
 
     public IEnumerable<ReservationDto> GetAllWeekly()
-<<<<<<< HEAD:MySpot/src/MySpot.Aplication/Services/ReservationService.cs
-<<<<<<< HEAD:MySpot/src/MySpot.Aplication/Services/ReservationService.cs
-        => _weeklyParkingSpotsRepository.GetAll().Select(x => new ReservationDto());
-           
-=======
-        => _weeklyParkingSpots.SelectMany(x => x.Reservations)
-=======
-        => _weeklyParkingSpotsRepository.GetAll().SelectMany(x => x.Id)
->>>>>>> parent of d63e74c (Create Aplication Layer and refactoring codebase):MySpot/src/MySpot.Api/Services/ReservationService.cs
-            .Select(x => new ReservationDto
+        => _weeklyParkingSpotsRepositories.GetAll().SelectMany(x => x.Id)
+        .Select(x => new ReservationDto
             {
                 Id = x.Id,
                 ParkingSpotId = x.ParkingSpotId,
                 EmplyeeName = x.EmploteeName,
                 Date = x.Date.Value.Date,
             });
-<<<<<<< HEAD:MySpot/src/MySpot.Aplication/Services/ReservationService.cs
->>>>>>> parent of 8048d5b (Dependency Inversion Principle):MySpot/src/MySpot.Api/Services/ReservationService.cs
-=======
->>>>>>> parent of d63e74c (Create Aplication Layer and refactoring codebase):MySpot/src/MySpot.Api/Services/ReservationService.cs
-
     public Guid? Create(CreateReservation command)
     {
-        var weeklyParkingSpot = _weeklyParkingSpots.SingleOrDefault(x => x.Id == command.ParkingSpotId);
+        var weeklyParkingSpot = _weeklyParkingSpotsRepositories.SingleOrDefault(x => x.Id == command.ParkingSpotId);
         if (weeklyParkingSpot is null)
             return default;
 
@@ -109,6 +72,6 @@ public class ReservationService : IReservationService
     }
 
     private WeeklyParkingSpot GetWeeklyParkingSpotByReservation(Guid reservationId)
-        => _weeklyParkingSpots.SingleOrDefault(x => x.Reservations.Any(r => r.Id == reservationId));
+        => _weeklyParkingSpotsRepositories.SingleOrDefault(x => x.Reservations.Any(r => r.Id == reservationId));
 }
 
