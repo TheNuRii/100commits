@@ -1,6 +1,7 @@
-using MySpot.Core.Exceptions;
+using MySpot.Api.Exceptions;
+using MySpot.Api.ValueObjects;
 
-namespace MySpot.Core.Entities;
+namespace MySpot.Api.Entities;
 
 public class WeeklyParkingSpot
 {

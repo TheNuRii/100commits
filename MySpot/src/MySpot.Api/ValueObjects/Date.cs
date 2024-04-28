@@ -1,4 +1,6 @@
-namespace MySpot.Core.ValueObjects;
+using MySpot.Api.Exceptions;
+
+namespace MySpot.Api.ValueObjects;
 
 public record Date
 {

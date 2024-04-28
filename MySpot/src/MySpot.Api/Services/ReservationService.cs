@@ -2,7 +2,9 @@
 <<<<<<< HEAD:MySpot/src/MySpot.Aplication/Services/ReservationService.cs
 =======
 using MySpot.Api.Commands;
+using MySpot.Api.Entities;
 using MySpot.Api.DTO;
+<<<<<<< HEAD
 >>>>>>> parent of d63e74c (Create Aplication Layer and refactoring codebase):MySpot/src/MySpot.Api/Services/ReservationService.cs
 using MySpot.Api.Repositories;
 using MySpot.Core.Entities;
@@ -13,6 +15,10 @@ using MySpot.Api.Entities;
 using MySpot.Api.DTO;
 using MySpot.Api.ValueObjects;
 >>>>>>> parent of 8048d5b (Dependency Inversion Principle):MySpot/src/MySpot.Api/Services/ReservationService.cs
+=======
+using MySpot.Api.ValueObjects;
+using MySpot.Api.Repositories;
+>>>>>>> parent of f72881c (Creating new project to capsulete ValueObjects, Exceptions, Entities)
 
 namespace MySpot.Api.Services;
 

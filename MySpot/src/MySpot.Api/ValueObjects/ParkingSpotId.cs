@@ -1,6 +1,6 @@
-using MySpot.Core.Exceptions;
+using MySpot.Api.Exceptions;
 
-namespace MySpot.Core.ValueObjects;
+namespace MySpot.Api.ValueObjects;
 
 public sealed record ParkingSpotId
 {

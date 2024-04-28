@@ -1,4 +1,6 @@
-using MySpot.Core.Exceptions;
+using MySpot.Api.Entities; 
+using MySpot.Api.Exceptions;
+using MySpot.Api.ValueObjects;
 using Shouldly;
 
 namespace MySpot.Tests.Unit.Entities;

@@ -1,6 +1,6 @@
+using MySpot.Api.Entities;
 using MySpot.Api.Services;
-using MySpot.Core.Entities;
-using MySpot.Core.ValueObjects;
+using MySpot.Api.ValueObjects;
 
 namespace MySpot.Api.Repositories;
 

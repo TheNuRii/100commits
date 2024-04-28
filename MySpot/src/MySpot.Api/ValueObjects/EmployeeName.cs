@@ -1,6 +1,7 @@
-using MySpot.Core.Exceptions;
+using System.Data;
+using MySpot.Api.Exceptions;
 
-namespace MySpot.Core.ValueObjects;
+namespace MySpot.Api.ValueObjects;
 
 public sealed record EmployeeName
 {
