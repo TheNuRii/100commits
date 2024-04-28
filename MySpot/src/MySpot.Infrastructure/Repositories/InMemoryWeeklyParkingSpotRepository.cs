@@ -1,7 +1,6 @@
 using MySpot.Core.Entities;
-using MySpot.Core.ValueObjects;
 
-namespace MySpot.Api.Repositories;
+namespace MySpot.Infrastructure.Repositories;
 
 public class InMemoryWeeklyParkingSpotRepository<ReservationDto> : IWeeklyParkingSpotRepository
 {

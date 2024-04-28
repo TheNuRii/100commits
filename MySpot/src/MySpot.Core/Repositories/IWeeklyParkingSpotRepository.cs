@@ -1,7 +1,7 @@
 using MySpot.Core.Entities;
 using MySpot.Core.ValueObjects;
 
-namespace MySpot.Api.Repositories;
+namespace MySpot.Core.Repositories;
 
 public interface IWeeklyParkingSpotRepository
 {
@@ -10,5 +10,4 @@ public interface IWeeklyParkingSpotRepository
     void Add(WeeklyParkingSpot weeklyParkingSpot);
     void Update(WeeklyParkingSpot weeklyParkingSpot);
     void Delete(WeeklyParkingSpot weeklyParkingSpot);
-    IEnumerable<ReservationDto> GetAll(Func<object, ReservationDto> func);
 }

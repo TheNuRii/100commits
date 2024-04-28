@@ -2,6 +2,7 @@ using MySpot.Api.Repositories;
 using MySpot.Aplication.Commands;
 using MySpot.Aplication.DTO;
 using MySpot.Core.Entities;
+using MySpot.Core.Repositories;
 using MySpot.Core.ValueObjects;
 
 namespace MySpot.Aplication.Services;
@@ -11,7 +12,7 @@ public class ReservationService : IReservationService
     private readonly IClock _clock;
     private readonly IWeeklyParkingSpotRepository _weeklyParkingSpotsRepository;
     
-    public ReservationService(IClock clock, IWeeklyParkingSpotRepository weeklyParkingSpotRepository)
+    public ReservationService(IClock clock, InMemoryWeeklyParkingSpotRepository weeklyParkingSpotRepository)
     {
         _clock = clock;
         _weeklyParkingSpotsRepository = weeklyParkingSpotRepository;

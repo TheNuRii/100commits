@@ -1,4 +1,6 @@
 using MySpot.Api.Repositories;
+using MySpot.Core.Repositories;
+
 using MySpot.
 
 var builder = WebApplication.CreateBuilder(args);
