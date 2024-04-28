@@ -8,7 +8,6 @@
     <ItemGroup>
       <ProjectReference Include="..\MySpot.Api\MySpot.Api.csproj" />
       <ProjectReference Include="..\MySpot.Core\MySpot.Core.csproj" />
-      <ProjectReference Include="..\MySpot.Infrastructure\MySpot.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>

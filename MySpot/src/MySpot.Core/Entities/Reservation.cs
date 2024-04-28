@@ -9,8 +9,7 @@ public class Reservation
     public string EmploteeName { get; private set; }
     public LicensePlate LicensePlate { get; private set; }
     public Date Date { get; private set; }
-    public object Reservations { get; set; }
-
+    
     public Reservation(Guid id, Guid parkingSpotId, string emploteeName, LicensePlate licensePlate, Date date)
     {
         Id = id;
