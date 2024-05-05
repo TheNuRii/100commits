@@ -1,6 +1,6 @@
-using MySpot.Api.Entities; 
-using MySpot.Api.Exceptions;
-using MySpot.Api.ValueObjects;
+using MySpot.Core.Entities;
+using MySpot.Core.Exceptions;
+using MySpot.Core.ValueObjects;
 using Shouldly;
 
 namespace MySpot.Tests.Unit.Entities;
@@ -18,7 +18,7 @@ public class WeeklyParkingSpotTests
             "XYZ123", new Date(invalidDate));
         
         // Act
-        var exception = Record.Exception(() => _weeklyParkingSpot.Addreservation(reservation, _now));
+        var exception = Record.Exception(() => _weeklyParkingSpot.AddReservation(reservation, _now));
         
         // Assert
         exception.ShouldNotBeNull();
@@ -34,9 +34,9 @@ public class WeeklyParkingSpotTests
         var nextReservation = new Reservation(Guid.NewGuid(), _weeklyParkingSpot.Id, "John Doe",
             "XYZ123", reservationDate);
         
-        _weeklyParkingSpot.Addreservation(reservation, _now);
+        _weeklyParkingSpot.AddReservation(reservation, _now);
         
-        var exception = Record.Exception(() => _weeklyParkingSpot.Addreservation(nextReservation, reservationDate));
+        var exception = Record.Exception(() => _weeklyParkingSpot.AddReservation(nextReservation, reservationDate));
         
         exception.ShouldNotBeNull();
         exception.ShouldBeOfType<ParkingSpotAlreadyReservedException>();
@@ -49,7 +49,7 @@ public class WeeklyParkingSpotTests
         var reservation = new Reservation(Guid.NewGuid(), _weeklyParkingSpot.Id, "John Doe",
             "XYZ123", reservationDate);
         
-        _weeklyParkingSpot.Addreservation(reservation, _now);
+        _weeklyParkingSpot.AddReservation(reservation, _now);
 
         _weeklyParkingSpot.Reservations.ShouldHaveSingleItem();
     }

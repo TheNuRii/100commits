@@ -1,6 +1,6 @@
-using MySpot.Api.Exceptions;
+using MySpot.Core.Exceptions;
 
-namespace MySpot.Api.ValueObjects;
+namespace MySpot.Core.ValueObjects;
 
 public sealed record ReservationId
 {

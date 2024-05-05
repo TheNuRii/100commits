@@ -1,4 +1,4 @@
-namespace MySpot.Api.ValueObjects;
+namespace MySpot.Core.ValueObjects;
 
 public sealed record Week
 {

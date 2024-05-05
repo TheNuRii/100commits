@@ -1,8 +1,7 @@
-using MySpot.Api.Entities;
-using MySpot.Api.Services;
-using MySpot.Api.ValueObjects;
+using MySpot.Core.Entities;
+using MySpot.Core.ValueObjects;
 
-namespace MySpot.Api.Repositories;
+namespace MySpot.Core.Repositories;
 
 public class InMemoryWeeklyParkingSpotRepository : IWeeklyParkingSpotRepository
 {
@@ -22,10 +21,10 @@ public class InMemoryWeeklyParkingSpotRepository : IWeeklyParkingSpotRepository
         };
     }
 
-    public WeeklyParkingSpot Get(ParkingSpotId id)
+    public WeeklyParkingSpot GetSpot(ParkingSpotId id)
         => _weeklyParkingSpots.SingleOrDefault(x => x.Id.Equals(id));
 
-    public IEnumerable<WeeklyParkingSpot> GetAll()
+    public IEnumerable<WeeklyParkingSpot> GetAll(object unknown)
         => _weeklyParkingSpots;
 
     public void Add(WeeklyParkingSpot weeklyParkingSpot)

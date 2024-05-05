@@ -1,16 +1,14 @@
-using MySpot.Api.Exceptions;
-using MySpot.Api.ValueObjects;
+using MySpot.Core.Exceptions;
+using MySpot.Core.ValueObjects;
 
-namespace MySpot.Api.Entities;
+namespace MySpot.Core.Entities;
 
 public class WeeklyParkingSpot
 {
     private readonly HashSet<Reservation> _reservations = new();
     
-    public Guid Id { get; }
-
-    public Week Week { get; set; }
-    
+    public ParkingSpotId Id { get; } 
+    public Week Week { get; private set; }
     public string Name { get; }
     public IEnumerable<Reservation> Reservations => _reservations;
     
@@ -20,27 +18,27 @@ public class WeeklyParkingSpot
         Week = week;
         Name = name;
     }
-    
 
-    public void Addreservation(Reservation reservation, Date now)
+    public static WeeklyParkingSpot Create(ParkingSpotId id, Week week, ParkingSpotName name)
+        => new(id, week, name);
+    
+    public void AddReservation(Reservation reservation, Date now)
     {
         var isInvalidDate = reservation.Date < Week.From || 
                             reservation.Date > Week.To ||
                             reservation.Date < now;
         if (isInvalidDate)
             throw new InvalidReservationDateException(reservation.Date.Value.Date);
-        
-        var reservationAlreadyExists = Reservations.Any(x =>
-            x.Date == reservation.Date);
 
-        if (reservationAlreadyExists)
+        if (_reservations.Any(x => x.Date == reservation.Date))
             throw new ParkingSpotAlreadyReservedException(Name, reservation.Date.Value.Date);
 
         _reservations.Add(reservation);
     }
     
-    // Comeback later 
     public void RemoveReservation(ReservationId reservationId)
         => _reservations.RemoveWhere(x => x.Id.Equals(reservationId));
+    public void RemoveReservations(IEnumerable<Reservation> reservations)
+        => _reservations.RemoveWhere(x => reservations.Any(r => r.Id == x.Id));
 }
 

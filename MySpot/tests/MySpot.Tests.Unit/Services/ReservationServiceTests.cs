@@ -1,8 +1,6 @@
 using MySpot.Api.Commands;
-using MySpot.Api.Entities;
-using MySpot.Api.Repositories;
 using MySpot.Api.Services;
-using MySpot.Api.ValueObjects;
+using MySpot.Core.Repositories;
 using MySpot.Tests.Unit.Shared;
 using Shouldly;
 
@@ -28,7 +26,7 @@ public class ReservationServiceTests
     #region Arrange
 
     private readonly IClock _clock;
-    private readonly IWeeklyParkingSpotRepository _weeklyParkingSpotRepository;
+    private readonly IEnumerable<IWeeklyParkingSpotRepository> _weeklyParkingSpotRepository;
     private readonly IReservationService _reservationService;
 
     public ReservationServiceTests()

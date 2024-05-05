@@ -6,9 +6,4 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\MySpot.Api\MySpot.Api.csproj" />
-      <ProjectReference Include="..\MySpot.Infrastrucre\MySpot.Infrastrucre.csproj" />
-    </ItemGroup>
-
 </Project>

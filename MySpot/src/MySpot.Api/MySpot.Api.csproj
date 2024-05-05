@@ -6,28 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Models\**" />
+    <ProjectReference Include="..\MySpot.Infrastrucre\MySpot.Infrastrucre.csproj" />
   </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Remove="Models\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Remove="Models\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="Models\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\MySpot.Core\MySpot.Core.csproj" />
-  </ItemGroup>
-
+  
 </Project>
