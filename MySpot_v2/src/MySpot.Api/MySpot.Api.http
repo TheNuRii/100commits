@@ -1,0 +1,6 @@
+@MySpot.Api_HostAddress = http://localhost:5183
+
+GET {{MySpot.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
